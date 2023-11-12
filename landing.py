@@ -13,9 +13,9 @@ def check_landing(string):
     landing_rwy = re.split(r"\s|\.",  request_atis[request_atis.find("LND"):])[2]
     print("Departing Runway: " + departing_rwy) 
     print("Landing Runway: " +  landing_rwy)
-    if landing_rwy == "22":
+    if landing_rwy == "4":
         print("Planes will be landing over the landing lights park")
-    if departing_rwy == "4":
+    if departing_rwy == "22":
         print("Planes will be taking off over the landing lights park")
 
 if __name__ == '__main__':
