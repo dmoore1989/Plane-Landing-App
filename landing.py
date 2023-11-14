@@ -8,9 +8,10 @@ def check_landing(string):
         request_atis = request.json()[0]['datis']
     else:
         request_atis = string
-
     departing_rwy = re.split(r"\s|\.",  request_atis[request_atis.find("DEPART"):])[2]
-    landing_rwy = re.split(r"\s|\.",  request_atis[request_atis.find("LND"):])[2]
+    landing_sentence = request_atis.find("LND") if request_atis.find("LND") > -1 else request_atis.find("LAND") 
+    landing_rwy = re.split(r"\s|\.",  request_atis[landing_sentence:]) 
+    landing_rwy = landing_rwy[2]
     print("Departing Runway: " + departing_rwy) 
     print("Landing Runway: " +  landing_rwy)
     if landing_rwy == "4":
